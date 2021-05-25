@@ -5,14 +5,20 @@ class Counter extends Component{
         number : 0
     }
     handleIncrease = () => {
+        const {number}=this.state;
+        this.setState({
+            number:number+1
+        })
+        /*
         this.setState({
             number: this.state.number +1
-        });
+        });*/
     }
     handleDecrease = () => {
-        this.setState({
-            number: this.state.number -1
-        });
+        this.setState(
+            ({number}) => ({number:number-1})
+            //number: this.state.number -1
+        );
     }
     render(){
         return(<div>
