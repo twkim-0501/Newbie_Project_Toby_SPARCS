@@ -4,7 +4,7 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <MyName />
+      <MyName name="김태우"/>
     );
   }
 }
