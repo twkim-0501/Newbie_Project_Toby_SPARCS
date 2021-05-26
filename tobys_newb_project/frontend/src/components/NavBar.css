@@ -1,0 +1,10 @@
+div.navbar {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+}
+
+div.navbar > * {
+    margin-right: 10px;
+    text-decoration: none;
+}
