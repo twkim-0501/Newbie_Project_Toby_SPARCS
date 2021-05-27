@@ -1,7 +1,7 @@
 import React from "react"
 const Closet = () => {
     return (
-        <div>B</div>
+        <div>This is Closet page.</div>
     )
 }
 export default Closet;

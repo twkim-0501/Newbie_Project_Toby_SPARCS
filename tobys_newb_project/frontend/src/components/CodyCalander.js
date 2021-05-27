@@ -1,7 +1,7 @@
 import React from "react"
 const CodyCalander = () => {
     return (
-        <div>A</div>
+        <div>This is Cody-Calander page.</div>
     )
 }
 export default CodyCalander;
