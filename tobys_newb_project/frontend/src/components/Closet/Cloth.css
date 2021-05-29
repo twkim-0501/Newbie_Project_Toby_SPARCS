@@ -1,0 +1,32 @@
+.Cloth {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.1s;
+    user-select: none;
+}
+.Delete{
+    margin-right: 1rem;
+    color: #1971c2;
+    font-weight: 500;
+    opacity: 0;
+}
+.Cloth:hover {
+    background: #ced4da;
+}
+.Cloth:hover .Delete{
+    opacity: 1;
+}
+.Cloth + .Cloth {
+    border-top: 0.7px solid #868e96;
+}
+.Cloth-name{
+    flex: 1;
+    word-break: keep-all;
+}
+.Wish-mark{
+    line-height: 1rem;
+    margin-left: 1rem;
+    font-weight: 700;
+}
