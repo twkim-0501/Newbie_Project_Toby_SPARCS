@@ -1,0 +1,19 @@
+.closetForm{
+    display: flex;
+}
+.closetForm input {
+    flex: 1;
+    font-size: 1rem; 
+    border: none;
+    border-bottom: 1px solid #ced4da;
+}
+.addButton {
+    padding: 0.5rem 0.75rem;
+    margin-left: 1rem;
+    background: #495057;
+    border-radius: 4px;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 450;
+    cursor: pointer; 
+}
