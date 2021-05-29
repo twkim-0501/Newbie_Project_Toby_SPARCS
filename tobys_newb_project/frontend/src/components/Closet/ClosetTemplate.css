@@ -1,8 +1,8 @@
 .clothList-template{
     background: white;
-    width: 512px;
+    width: 384px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    margin:  0 auto; 
+    margin:  4rem; 
     margin-top: 4rem; 
 }
 .clothCategory{

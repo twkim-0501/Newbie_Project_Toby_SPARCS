@@ -6,7 +6,7 @@ const ClosetForm = ({value, onChange, onCreate}) => {
         <div className="closetForm">
             <input value={value} onChange={onChange}/>
             <div className="addButton" onClick={onCreate}>
-                옷장에 쏙
+                쏙
             </div>
         </div>
     )
