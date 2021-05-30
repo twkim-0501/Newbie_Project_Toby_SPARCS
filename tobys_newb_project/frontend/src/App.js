@@ -18,8 +18,14 @@ class App extends Component {
           <Route exact path="/cody_calander">
             <CodyCalander />
           </Route>
-          <Route exact path="/closet">
-            <Closet />
+          <Route exact path="/closet" >
+            <div className="Closets">
+              <Closet cloth_category="상의"/>
+              <Closet cloth_category="하의"/>
+              <Closet cloth_category="신발"/>
+              <Closet cloth_category="아우터"/>
+              <Closet cloth_category="악세사리"/>
+            </div>
           </Route>
         </Switch>
       </BrowserRouter>

@@ -47,9 +47,10 @@ class Closet extends Component {
         });
     }
     render(){
+        const { cloth_category } = this.props;
         return (
             //<div>This is Closet page.</div>
-            <ClosetTemplate form={<ClosetForm value={this.state.input} onChange={this.handleChange} onCreate={this.handleCreate}/>}>
+            <ClosetTemplate cloth_category={cloth_category} form={<ClosetForm value={this.state.input} onChange={this.handleChange} onCreate={this.handleCreate}/>}>
                 <ClothList clothes={this.state.clothes} onDelete={this.handleDelete} onToggle={this.handleToggle}/>
             </ClosetTemplate>
         );

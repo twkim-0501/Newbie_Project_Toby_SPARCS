@@ -1,11 +1,11 @@
 import React from 'react';
 import './ClosetTemplate.css';
 
-const ClosetTemplate = ({form,children}) => {
+const ClosetTemplate = ({cloth_category,form,children}) => {
     return (
         <main className="clothList-template">
             <div className="clothCategory">
-                옷 종류
+                {cloth_category}
             </div>
             <section className="form-Wrapper">
                 {form}

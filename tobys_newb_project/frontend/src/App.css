@@ -1,3 +1,10 @@
+.Closets{
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  /*float: right;*/
+}
+
 .App {
   text-align: center;
 }
