@@ -29,6 +29,12 @@ class Closet extends Component {
             })
         });
     }
+    handleDelete = (id) => {
+        const {clothes} = this.state;
+        this.setState({
+            clothes: clothes.filter(cloth => (cloth.id!==id))
+        });
+    }
     handleToggle = (id) => {
         const {clothes} = this.state;
         const del_cloth = clothes[clothes.findIndex(cloth => cloth.id === id)];//삭제할 옷
@@ -44,7 +50,7 @@ class Closet extends Component {
         return (
             //<div>This is Closet page.</div>
             <ClosetTemplate form={<ClosetForm value={this.state.input} onChange={this.handleChange} onCreate={this.handleCreate}/>}>
-                <ClothList clothes={this.state.clothes} onToggle={this.handleToggle}/>
+                <ClothList clothes={this.state.clothes} onDelete={this.handleDelete} onToggle={this.handleToggle}/>
             </ClosetTemplate>
         );
     }

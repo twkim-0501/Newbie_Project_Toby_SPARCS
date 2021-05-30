@@ -2,6 +2,11 @@ import React, {Component} from 'react';
 import Cloth from './Cloth';
 
 class ClothList extends Component {
+    /*리렌더링 최적화!*/
+    shouldComponentUpdate(nextProps,nextState){
+        return this.props.clothes !== nextProps.clothes;
+    }
+
     render() {
         const { clothes, onDelete, onToggle} = this.props;
         const clothList = clothes.map(
