@@ -6,11 +6,11 @@ import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 
 class Cloth extends Component {
     render() {
-        const { id, text, Wished, onWish, onDelete} = this.props;
+        const { id, text, Wished, onDelete, onToggle} = this.props;
 
         return (
             /*위시 체크!, (렌더링될 때 호출 되므로 ()=> 이런식으로)*/
-            <div className="Cloth" onClick={() => onWish(id)}>
+            <div className="Cloth" onClick={() => onToggle(id)}>
                 <div className="Delete" onClick={(e) => {
                     e.stopPropagation(); //삭제버튼 누를 때, 위시 체크 안되게 하기!
                     onDelete(id)
@@ -23,7 +23,7 @@ class Cloth extends Component {
                 {
                     Wished ? 
                     <div className="Wish-mark">
-                        <StarIcon color="#ffd43b"></StarIcon>
+                        <StarIcon></StarIcon>
                     </div> : 
                     <div className="Wish-mark">
                         <StarBorderIcon></StarBorderIcon>

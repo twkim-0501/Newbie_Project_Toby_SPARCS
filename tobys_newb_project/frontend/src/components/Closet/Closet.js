@@ -29,11 +29,22 @@ class Closet extends Component {
             })
         });
     }
+    handleToggle = (id) => {
+        const {clothes} = this.state;
+        const del_cloth = clothes[clothes.findIndex(cloth => cloth.id === id)];//삭제할 옷
+        const temp = [...clothes];
+        temp[clothes.findIndex(cloth => cloth.id === id)] = { //wished값 변경
+            ...del_cloth, wished: !(del_cloth.wished)
+        };
+        this.setState({
+            clothes: temp
+        });
+    }
     render(){
         return (
             //<div>This is Closet page.</div>
             <ClosetTemplate form={<ClosetForm value={this.state.input} onChange={this.handleChange} onCreate={this.handleCreate}/>}>
-                <ClothList clothes={this.state.clothes}/>
+                <ClothList clothes={this.state.clothes} onToggle={this.handleToggle}/>
             </ClosetTemplate>
         );
     }
