@@ -1,7 +1,12 @@
-const express = require('express');
-const router = express.Router()
+/*Closet API의 라우터와 요청을 처리하는 로직 */
+const mongoose = require("mongoose");
+const schema = new mongoose.Schema({
+    done: {
+        wished: Boolean,
+        default: false
+    },
+    name: String
+}, {timestamps: true});
 
-router.get('/', (req,res) => {
-    res.send("저장한 옷 목록을 보여줍니다.")
-})
-module.exports =  router;
+const ClosetModel = mongoose.model("cloth",schema);
+module.exports = ClosetModel;
