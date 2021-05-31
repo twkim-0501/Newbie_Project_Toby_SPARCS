@@ -3,17 +3,17 @@ let db = {
     top : [
         {
             id: 0,
-            name: "123",
+            text: "123",
             wished: true
         },
         {
             id: 1,
-            name: "123df",
+            text: "123df",
             wished: true
         },
         {
             id: 2,
-            name: "1sdf23",
+            text: "1sdf23",
             wished: false
         },
 
@@ -27,3 +27,6 @@ function getAll(id, callback) {
     callback(db[id]);
 }
 //db.c1.push(item);
+module.exports = {
+    getAll
+  };

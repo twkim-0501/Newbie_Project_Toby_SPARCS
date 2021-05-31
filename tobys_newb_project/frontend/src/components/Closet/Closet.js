@@ -49,7 +49,8 @@ class Closet extends Component {
         //옷 목록 조회 요청 전송
         axios.get(`/api/closet/${this.props.cloth_category}`)
         .then(response => {
-            this.setState({clothes: [...response]})
+            //console.log(response);
+            this.setState({clothes: [...response.data]})
         });
 
 
