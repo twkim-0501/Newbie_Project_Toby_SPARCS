@@ -20,11 +20,11 @@ class App extends Component {
           </Route>
           <Route exact path="/closet" >
             <div className="Closets">
-              <Closet cloth_category="상의"/>
-              <Closet cloth_category="하의"/>
-              <Closet cloth_category="신발"/>
-              <Closet cloth_category="아우터"/>
-              <Closet cloth_category="악세사리"/>
+              <Closet cloth_category="top"/>
+              <Closet cloth_category="bottom"/>
+              <Closet cloth_category="shoes"/>
+              <Closet cloth_category="outer"/>
+              <Closet cloth_category="accessory"/>
             </div>
           </Route>
         </Switch>

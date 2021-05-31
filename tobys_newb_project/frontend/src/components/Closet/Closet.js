@@ -1,4 +1,5 @@
 import React, {Component} from "react"
+import axios from "axios";
 import ClosetTemplate from './ClosetTemplate';
 import ClosetForm from './ClosetForm';
 import ClothList from './ClothList';
@@ -6,10 +7,7 @@ class Closet extends Component {
     id = 2
     state = {
         input: '',
-        clothes:  [
-            { id:0, text: '옷1', wished: false},
-            { id:1, text: '옷2', wished: true}
-        ]
+        clothes:  []
     }
     handleChange = (e) => {
         this.setState({
@@ -48,6 +46,14 @@ class Closet extends Component {
     }
     render(){
         const { cloth_category } = this.props;
+        //옷 목록 조회 요청 전송
+        axios.get(`/api/closet/${this.props.cloth_category}`)
+        .then(response => {
+            this.setState({clothes: [...response]})
+        });
+
+
+
         return (
             //<div>This is Closet page.</div>
             <ClosetTemplate cloth_category={cloth_category} form={<ClosetForm value={this.state.input} onChange={this.handleChange} onCreate={this.handleCreate}/>}>

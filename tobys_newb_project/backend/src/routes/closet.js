@@ -1,12 +1,13 @@
-/*Closet API의 라우터와 요청을 처리하는 로직 */
-const mongoose = require("mongoose");
-const schema = new mongoose.Schema({
-    done: {
-        wished: Boolean,
-        default: false
-    },
-    name: String
-}, {timestamps: true});
+const express = require("express");
+const db = require("../../db");
+const router = express.Router();
 
-const ClosetModel = mongoose.model("cloth",schema);
-module.exports = ClosetModel;
+router.get("/:id", (req, res) => {
+    db.getAll(
+        req.params.id,
+        (clothes)=> {
+        res.json(clothes);
+    })
+});
+
+module.exports = router;

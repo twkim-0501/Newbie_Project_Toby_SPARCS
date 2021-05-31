@@ -3,15 +3,15 @@ const express = require('express');
 const path = require("path");
 const bodyParser = require('body-parser');
 const closetRouter = require('./src/routes/closet');
-const mongoose = require("mongoose");
+//const mongoose = require("mongoose");
 
 const app = express();
 const port = 8080;
-
+/*
 const db = mongoose.connection;
 db.once('open',function(){
   console.log("DB connected!");
-});
+});*/
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
