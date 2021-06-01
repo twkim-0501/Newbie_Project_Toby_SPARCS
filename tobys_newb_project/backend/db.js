@@ -10,12 +10,7 @@ let db = {
             id: 1,
             text: "123df",
             wished: true
-        },
-        {
-            id: 2,
-            text: "1sdf23",
-            wished: false
-        },
+        }
 
     ],
     bottom : [],
@@ -23,10 +18,18 @@ let db = {
     outer : [],
     accessory: [],
 }
-function getAll(id, callback) {
-    callback(db[id]);
+function getAll(category, callback) {
+    callback(db[category]);
 }
+function add(category, body, callback) {
+    let id = db[category].length;
+    db[category].push({id: id, text: body.text, wished: body.wished});
+    //console.log(db[category]);
+    callback();
+}
+
 //db.c1.push(item);
 module.exports = {
-    getAll
+    getAll,
+    add
   };
