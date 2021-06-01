@@ -6,6 +6,7 @@ class ClothList extends Component {
     shouldComponentUpdate(nextProps,nextState){
         return this.props.clothes !== nextProps.clothes;
     }
+    
 
     render() {
         const { clothes, onDelete, onToggle} = this.props;
