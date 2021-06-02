@@ -1,4 +1,4 @@
-import React, {usestate} from 'react';
+import React, { useState } from 'react';
 /*from material-ui*/ 
 import { makeStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -6,6 +6,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
+
 const useStyles = makeStyles((theme) => ({
     formControl: {
       margin: theme.spacing(1),
@@ -15,30 +16,41 @@ const useStyles = makeStyles((theme) => ({
       marginTop: theme.spacing(2)
     }
   }));
-export default function SimpleSelect() {
+
+export default function CategorySelect(props) {
     const classes = useStyles();
-    const [age, setAge] = React.useState("");
+    const [cloth, setCloth] = useState("");
 
     const handleChange = (event) => {
-        setAge(event.target.value);
+        setCloth(event.target.value);
     };
+    const keys = Object.keys(props.children);
+
     return (
         <div>
-            <FormControl className={classes.formControl}>
-                <InputLabel>Age</InputLabel>
-                <Select
-                value={age}
-                onChange={handleChange}
-                >
-                <MenuItem value="">
-                    <em>None</em>
-                </MenuItem>
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-                <FormHelperText>Some important helper text</FormHelperText>
-            </FormControl>
+            <ul>
+                {keys.map((category, index)=>{
+                    return (
+                    <FormControl className={classes.formControl}>
+                        <InputLabel>{category}</InputLabel>
+                        <Select
+                        value={cloth}
+                        onChange={handleChange}
+                        >
+                        <MenuItem value="">
+                            <em>None</em>
+                        </MenuItem>
+                        <ul>
+                            {props.children[keys[index]].map((cloth, i) => {
+                                return <MenuItem value={cloth.id}>{cloth.text}</MenuItem>;
+                            })}
+                        </ul>
+                        </Select>
+                        <FormHelperText>Some important helper text</FormHelperText>
+                    </FormControl>
+                    );
+                })}
+            </ul>
         </div>
     );
 }  

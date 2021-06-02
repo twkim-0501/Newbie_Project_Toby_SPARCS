@@ -14,9 +14,9 @@ class CodyCalander extends Component {
     render(){
         console.log(this.state.closet);
 
-        return (<CodySelect>
-
-        </CodySelect>);
+        return (
+            <CodySelect>{this.state.closet}</CodySelect>
+        );
     } 
 }
 export default CodyCalander;
