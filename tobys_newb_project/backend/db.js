@@ -30,7 +30,7 @@ function add(category, body, callback) {
     //let newid = db[category][len-1].id + 1;
     let newid=Math.random().toString(36).substr(2,11);
     db[category].push({id: newid, text: body.text, wished: body.wished});
-    console.log(db[category]);
+    //console.log(db[category]);
     callback();
 }
 function remove(category, id, callback) {

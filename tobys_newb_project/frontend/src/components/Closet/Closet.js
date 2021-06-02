@@ -8,6 +8,14 @@ class Closet extends Component {
         input: '',
         clothes:  []
     }
+    componentDidMount() {
+        //옷 목록 조회 요청 전송
+        axios.get(`/api/closet/${this.props.cloth_category}`)
+        .then(response => {
+            //console.log(response);
+            this.setState({clothes: [...response.data]})
+        });
+    }
     handleChange = (e) => {
         this.setState({
             input: e.target.value //인풋 change value
@@ -72,12 +80,6 @@ class Closet extends Component {
     }
     render(){
         const { cloth_category } = this.props;
-        //옷 목록 조회 요청 전송
-        axios.get(`/api/closet/${this.props.cloth_category}`)
-        .then(response => {
-            //console.log(response);
-            this.setState({clothes: [...response.data]})
-        });
 
 
 

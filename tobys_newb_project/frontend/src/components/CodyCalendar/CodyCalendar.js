@@ -6,12 +6,12 @@ class CodyCalander extends Component {
     state = {
         closet: {}
     }
-
-
-
-    render(){
+    componentDidMount() {
         axios.get(`/api/closet/`)
         .then(response => { this.setState({closet: response.data}) });
+    }
+
+    render(){
         console.log(this.state.closet);
 
         return (<CodySelect>

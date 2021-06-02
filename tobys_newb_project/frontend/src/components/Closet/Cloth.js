@@ -5,6 +5,9 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 
 class Cloth extends Component {
+    shouldComponentUpdate(nextProps,nextState){
+        return this.props.Wished !== nextProps.Wished;
+    }
     render() {
         const { id, text, Wished, onDelete, onToggle} = this.props;
 
