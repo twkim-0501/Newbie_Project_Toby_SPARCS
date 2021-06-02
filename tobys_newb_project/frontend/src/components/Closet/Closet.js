@@ -1,4 +1,4 @@
-import React, {Component} from "react"
+import React, {Component} from "react";
 import axios from "axios";
 import ClosetTemplate from './ClosetTemplate';
 import ClosetForm from './ClosetForm';

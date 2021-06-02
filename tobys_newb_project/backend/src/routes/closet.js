@@ -2,8 +2,15 @@ const express = require("express");
 const db = require("../../db");
 const router = express.Router();
 
-router.get("/:category", (req, res) => {
+router.get("/", (req, res) => {
     db.getAll(
+        (clothes)=> {
+        res.json(clothes);
+    })
+});
+
+router.get("/:category", (req, res) => {
+    db.getCategory(
         req.params.category,
         (clothes)=> {
         res.json(clothes);

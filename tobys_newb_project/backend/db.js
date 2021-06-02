@@ -19,7 +19,10 @@ let db = {
     outer : [],
     accessory: [],
 }
-function getAll(category, callback) {
+function getAll(callback) {
+    callback(db);
+}
+function getCategory(category, callback) {
     callback(db[category]);
 }
 function add(category, body, callback) {
@@ -54,6 +57,7 @@ function toggle(category, id, callback) {
 //db.c1.push(item);
 module.exports = {
     getAll,
+    getCategory,
     add,
     remove,
     toggle
