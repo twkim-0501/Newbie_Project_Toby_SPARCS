@@ -34,7 +34,20 @@ function remove(category, id, callback) {
     //db[category].splice(id, 1);
     //clothes.filter(cloth => (cloth.id!==id))
     db[category]= db[category].filter(cloth => (cloth.id!==id));
-    console.log(db[category]);
+    //console.log(db[category]);
+    callback();
+}
+function toggle(category, id, callback) {
+    let tog_i = db[category].findIndex(cloth => (cloth.id === id));
+    
+    let tog_cloth = db[category][tog_i];
+    tog_cloth.wished = !(tog_cloth.wished);
+    /*
+    let temp = [...db[category]];
+    temp[tog_i] = {
+        ...tog_cloth, wished: !(tog_cloth.wished)
+    };
+    db[category]=temp;*/
     callback();
 }
 
@@ -42,5 +55,6 @@ function remove(category, id, callback) {
 module.exports = {
     getAll,
     add,
-    remove
+    remove,
+    toggle
   };

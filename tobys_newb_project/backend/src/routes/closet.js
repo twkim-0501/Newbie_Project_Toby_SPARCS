@@ -28,5 +28,14 @@ router.post("/delete/:category", (req,res) => {
             res.status(200).send();
     });
 });
+router.post("/toggle/:category", (req,res)=> {
+    db.toggle(
+        req.params.category,
+        req.body.id,
+        () => {
+            res.status(200).send();
+        }
+    );
+});
 
 module.exports = router;
