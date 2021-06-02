@@ -14,6 +14,7 @@ let db = {
 
     ],
     bottom : [],
+
     shoes : [],
     outer : [],
     accessory: [],
@@ -22,8 +23,9 @@ function getAll(category, callback) {
     callback(db[category]);
 }
 function add(category, body, callback) {
-    let len = db[category].length;
-    let newid = db[category][len-1].id + 1;
+    //let len = db[category].length;
+    //let newid = db[category][len-1].id + 1;
+    let newid=Math.random().toString(36).substr(2,11);
     db[category].push({id: newid, text: body.text, wished: body.wished});
     console.log(db[category]);
     callback();
