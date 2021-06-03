@@ -7,16 +7,7 @@ class CodyCalander extends Component {
     state = {
         closet: {},
         codyList: {
-            "Sun": [
-                {
-                    id: 100,
-                    top: "a",
-                    bottom: "b",
-                    shoes: "c",
-                    outer: "d",
-                    accessory: "e",
-                }
-            ],
+            "Sun": [],
             "Mon": [],
             "Tue": [],
             "Wed": [],
@@ -28,16 +19,26 @@ class CodyCalander extends Component {
     componentDidMount() {
         axios.get(`/api/closet/`)
         .then(response => { this.setState({closet: response.data}) });
-    }
-    handleDelete = (id) => {
 
+        axios.get(`/api/calendar/`)
+        .then(response => { this.setState({codyList: response.data})});
+    }
+    handleUpdate = (list) => {
+        this.setState({codyList: list});
+    }
+    handleDelete = (id, day) => {
+        axios.post(`/api/calendar/delete/`, {id:id, day:day})
+        .then(() => axios.get(`/api/calendar/`))
+        .then(response => {
+            this.setState({codyList: response.data})
+        });
     }
     render(){
         //console.log(this.state.closet);
         return (
             
             <div>
-                <CodySelect >{this.state.closet}</CodySelect>
+                <CodySelect onUpdate={this.handleUpdate}>{this.state.closet}</CodySelect>
                 <WeeklyCal onDelete={this.handleDelete}>{this.state.codyList}</WeeklyCal>
             </div>
             

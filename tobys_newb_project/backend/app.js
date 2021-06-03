@@ -3,6 +3,7 @@ const express = require('express');
 const path = require("path");
 const bodyParser = require('body-parser');
 const closetRouter = require('./src/routes/closet');
+const calendarRouter = require('./src/routes/calendar');
 //const mongoose = require("mongoose");
 
 const app = express();
@@ -19,6 +20,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use('/closet', closetRouter);
+app.use('/calendar', calendarRouter);
 
 app.get('/', (req, res) => {
     res.status(418).send("First Project");

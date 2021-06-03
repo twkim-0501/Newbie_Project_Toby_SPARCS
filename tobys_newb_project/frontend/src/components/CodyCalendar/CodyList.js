@@ -3,11 +3,12 @@ import Cody from './Cody';
 
 class CodyList extends Component {
     render() {
-        const { codies, onDelete } = this.props;
+        const { codies, onDelete, day } = this.props;
         const codyList = codies.map(
             (cody) => (
                 <Cody
                     cody={cody}
+                    day={day}
                     onDelete={onDelete}
                     key = {cody.id}
                 />

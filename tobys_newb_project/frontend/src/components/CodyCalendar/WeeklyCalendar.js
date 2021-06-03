@@ -23,7 +23,7 @@ class WeeklyCal extends Component {
                         //<div></div>
                     
                     <DayTemplate day_name={day}>
-                        <CodyList codies={codyList[day]} onDelete={this.props.onDelete}/>
+                        <CodyList day={day} codies={codyList[day]} onDelete={this.props.onDelete}/>
                     </DayTemplate>
                     );
                 })

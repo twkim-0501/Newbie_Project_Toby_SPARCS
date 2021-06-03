@@ -23,7 +23,7 @@ class Closet extends Component {
     }
 
     handleCreate =() => {
-        const { input, clothes } = this.state;
+        const { input , clothes} = this.state;
         axios.post(`/api/closet/${this.props.cloth_category}`, {
             text: input,
             wished: false

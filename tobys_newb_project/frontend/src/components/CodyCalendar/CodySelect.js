@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import './CodySelect.css';
-/*from material-ui*/ 
 import { makeStyles } from "@material-ui/core/styles";
 import Input from '@material-ui/core/Input';
 import InputLabel from "@material-ui/core/InputLabel";
@@ -9,6 +8,7 @@ import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import Button from '@material-ui/core/Button';
+import axios from "axios";
 
 const Dayslist= [
     'Sun',
@@ -35,31 +35,40 @@ export default function CategorySelect(props) {
     const [cloth, setCloth] = useState([]);
     const [days, setDays] = useState([]);
     const keys = Object.keys(props.children);
-    let change_i = -1;
-    const handleChange = (event) => {
+    const handleChange = (event, change_i) => {
         let temp = [...cloth];
+        console.log(change_i);
         temp[change_i] = event.target.value;
         setCloth(temp);
     };
     const handleChangeMultiple = (event) => {
         setDays(event.target.value);
     };
-    const getCody = () => {
-        console.log("wow");
+    const handleAdd =() => {
+        axios.post(`/api/calendar/`, {
+            top: cloth[0],
+            bottom: cloth[1],
+            shoes: cloth[2],
+            outer: cloth[3],
+            accessory: cloth[4],
+            day: days
+        })
+        .then(() => axios.get(`/api/calendar/`))
+        .then(response => {props.onUpdate(response.data)})
     };
-    
 
     return (
         <div>
             <ul className="Selects">
                 {keys.map((category, index)=>{
-                    change_i=index;
+                    var change_i=index;
                     return (
                     <FormControl className={classes.formControl}>
                         <InputLabel>{category}</InputLabel>
                         <Select
-                        value={cloth[index]}
-                        onChange={handleChange}
+                        defaultValue=""
+                        value={cloth[change_i]}
+                        onChange={e => handleChange(e,change_i)}
                         >
                         <MenuItem value="">
                             <em>None</em>
@@ -81,7 +90,6 @@ export default function CategorySelect(props) {
                         value={days}
                         onChange={handleChangeMultiple}
                         input={<Input />}
-                        /*MenuProps={MenuProps}*/
                         >
                         {Dayslist.map((day) => (
                             <MenuItem key={day} value={day}>
@@ -94,11 +102,11 @@ export default function CategorySelect(props) {
             </ul>
             <div className="Button">
                 <Button 
-                    variant="contained" size="large" color="deep gray"
-                    onClick={getCody}>
+                    variant="contained" size="large" color="primary"
+                    onClick={handleAdd}>
                     Upload
                 </Button>
             </div>
         </div>
     );
-}  
+} 

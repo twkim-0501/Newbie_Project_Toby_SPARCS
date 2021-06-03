@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
+import Chips from './Chips';
 import './Cody.css';
+
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 
 class Cody extends Component {
 
     render () {
-        const {cody, onDelete} = this.props;
+        const {cody, day, onDelete} = this.props;
         return (
-            <div className="Cody">
-                <div className="Delete" onClick={(e) => {
-                    //e.stopPropagation();
-                    onDelete(cody.id)
-                }}> <DeleteOutlineIcon></DeleteOutlineIcon> </div>
+            <div className="Cody" onClick={() => onDelete(cody.id, day)}>
+                <div className="Delete"> 
+                    <DeleteOutlineIcon> </DeleteOutlineIcon> 
+                </div>
                 <div className="Cody-content">
-                    ({cody.top} {cody.bottom} {cody.shoes} {cody.outer} {cody.accessory})
+                    <Chips cody={cody}/>
                 </div>
             </div>
             

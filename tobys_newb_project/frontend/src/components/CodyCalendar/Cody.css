@@ -1,0 +1,26 @@
+.Cody{
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.1s;
+    user-select: none;
+}
+.Delete{
+    margin-right: 1rem;
+    color: #1971c2;
+    font-weight: 500;
+}
+.Cody:hover {
+    background: #ced4da;
+}
+.Cody:hover .Delete{
+    opacity: 1;
+}
+.Cody + .Cody {
+    border-top: 0.7px solid #868e96;
+}
+.Cloth-content{
+    flex: 1;
+    word-break: keep-all;
+}

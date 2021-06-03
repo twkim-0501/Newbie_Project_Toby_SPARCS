@@ -20,7 +20,6 @@ let db = {
     accessory: [],
 }
 
-
 function getAll(callback) {
     callback(db);
 }
