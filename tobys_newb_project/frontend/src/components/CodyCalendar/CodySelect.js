@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './CodySelect.css';
 /*from material-ui*/ 
 import { makeStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -6,6 +7,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -19,38 +21,49 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CategorySelect(props) {
     const classes = useStyles();
-    const [cloth, setCloth] = useState("");
-
+    const [cloth, setCloth] = useState([]);
+    
+    let change_i = -1;
     const handleChange = (event) => {
-        setCloth(event.target.value);
+        let temp = [...cloth];
+        temp[change_i] = event.target.value;
+        setCloth(temp);
     };
     const keys = Object.keys(props.children);
 
     return (
         <div>
-            <ul>
+            <ul className="Selects">
                 {keys.map((category, index)=>{
+                    change_i=index;
                     return (
                     <FormControl className={classes.formControl}>
                         <InputLabel>{category}</InputLabel>
                         <Select
-                        value={cloth}
+                        value={cloth[index]}
                         onChange={handleChange}
                         >
                         <MenuItem value="">
                             <em>None</em>
                         </MenuItem>
-                        <ul>
+
                             {props.children[keys[index]].map((cloth, i) => {
-                                return <MenuItem value={cloth.id}>{cloth.text}</MenuItem>;
+                                return <MenuItem key={cloth.id} value={cloth.text}>{cloth.text}</MenuItem>;
                             })}
-                        </ul>
+                        
                         </Select>
-                        <FormHelperText>Some important helper text</FormHelperText>
+                        <FormHelperText>Select the {category}</FormHelperText>
                     </FormControl>
                     );
                 })}
             </ul>
+            <div className="Button">
+                <Button 
+                    variant="contained" size="large" color="deep gray"
+                    onClick="GetCody">
+                    Upload
+                </Button>
+            </div>
         </div>
     );
 }  
