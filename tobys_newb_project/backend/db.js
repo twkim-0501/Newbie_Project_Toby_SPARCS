@@ -19,6 +19,8 @@ let db = {
     outer : [],
     accessory: [],
 }
+
+
 function getAll(callback) {
     callback(db);
 }

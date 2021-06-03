@@ -85,7 +85,10 @@ class Closet extends Component {
 
         return (
             //<div>This is Closet page.</div>
-            <ClosetTemplate cloth_category={cloth_category} form={<ClosetForm value={this.state.input} onChange={this.handleChange} onCreate={this.handleCreate}/>}>
+            <ClosetTemplate 
+            cloth_category={cloth_category} 
+            form={<ClosetForm value={this.state.input} 
+            onChange={this.handleChange} onCreate={this.handleCreate}/>}>
                 <ClothList clothes={this.state.clothes} onDelete={this.handleDelete} onToggle={this.handleToggle}/>
             </ClosetTemplate>
         );

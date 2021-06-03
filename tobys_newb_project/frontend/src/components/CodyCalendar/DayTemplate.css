@@ -1,0 +1,19 @@
+.Day-template{
+    background: white;
+    width: 300px;
+    min-width: 200px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    margin:  0.5rem; 
+    margin-top: 4rem; 
+}
+.dayName{
+    padding: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: 100;
+    background-color: #868e96;
+    color: white;
+}
+.cody-Wrapper{
+    min-height: 8rem;
+}
