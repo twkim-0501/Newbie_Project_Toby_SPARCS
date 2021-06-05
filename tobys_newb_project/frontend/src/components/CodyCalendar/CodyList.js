@@ -10,7 +10,7 @@ class CodyList extends Component {
                     cody={cody}
                     day={day}
                     onDelete={onDelete}
-                    key = {cody.id}
+                    key = {cody._id}
                 />
             )
                 

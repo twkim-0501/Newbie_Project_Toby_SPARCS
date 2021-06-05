@@ -30,7 +30,7 @@ router.post("/delete/:category", (req,res) => {
     //console.log(req.body);
     db.remove(
         req.params.category,
-        req.body.id,
+        req.body._id,
         ()=> {
             res.status(200).send();
     });
@@ -38,7 +38,7 @@ router.post("/delete/:category", (req,res) => {
 router.post("/toggle/:category", (req,res)=> {
     db.toggle(
         req.params.category,
-        req.body.id,
+        req.body._id,
         () => {
             res.status(200).send();
         }

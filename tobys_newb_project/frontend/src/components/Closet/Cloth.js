@@ -9,14 +9,14 @@ class Cloth extends Component {
         return this.props.Wished !== nextProps.Wished;
     }
     render() {
-        const { id, text, Wished, onDelete, onToggle} = this.props;
+        const { _id, text, Wished, onDelete, onToggle} = this.props;
 
         return (
             /*위시 체크!, (렌더링될 때 호출 되므로 ()=> 이런식으로)*/
-            <div className="Cloth" onClick={() => onToggle(id)}>
+            <div className="Cloth" onClick={() => onToggle(_id)}>
                 <div className="Delete" onClick={(e) => {
                     e.stopPropagation(); //삭제버튼 누를 때, 위시 체크 안되게 하기!
-                    onDelete(id)
+                    onDelete(_id)
                 }}>
                     <DeleteOutlineIcon></DeleteOutlineIcon>
                 </div>

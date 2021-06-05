@@ -9,7 +9,7 @@ class Cody extends Component {
     render () {
         const {cody, day, onDelete} = this.props;
         return (
-            <div className="Cody" onClick={() => onDelete(cody.id, day)}>
+            <div className="Cody" onClick={() => onDelete(cody._id, day)}>
                 <div className="Delete"> 
                     <DeleteOutlineIcon> </DeleteOutlineIcon> 
                 </div>

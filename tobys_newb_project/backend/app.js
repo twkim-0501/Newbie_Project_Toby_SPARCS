@@ -4,15 +4,20 @@ const path = require("path");
 const bodyParser = require('body-parser');
 const closetRouter = require('./src/routes/closet');
 const calendarRouter = require('./src/routes/calendar');
-//const mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
 const app = express();
 const port = 8080;
-/*
+
+mongoose.connect("mongodb://localhost:27017/cody_closet", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
 const db = mongoose.connection;
-db.once('open',function(){
+db.once("open", function() {
   console.log("DB connected!");
-});*/
+});
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({

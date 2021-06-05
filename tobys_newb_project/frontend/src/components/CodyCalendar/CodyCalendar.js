@@ -17,9 +17,10 @@ class CodyCalander extends Component {
         }
     }
     componentDidMount() {
+
         axios.get(`/api/closet/`)
         .then(response => { this.setState({closet: response.data}) });
-
+        
         axios.get(`/api/calendar/`)
         .then(response => { this.setState({codyList: response.data})});
     }
@@ -27,7 +28,7 @@ class CodyCalander extends Component {
         this.setState({codyList: list});
     }
     handleDelete = (id, day) => {
-        axios.post(`/api/calendar/delete/`, {id:id, day:day})
+        axios.post(`/api/calendar/delete/`, {_id:id, day:day})
         .then(() => axios.get(`/api/calendar/`))
         .then(response => {
             this.setState({codyList: response.data})

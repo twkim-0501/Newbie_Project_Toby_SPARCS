@@ -1,12 +1,13 @@
 /*Closet API의 라우터와 요청을 처리하는 로직 */
 const mongoose = require("mongoose");
-const schema = new mongoose.Schema({
-    done: {
-        wished: Boolean,
+const ClothSchema = new mongoose.Schema({
+    text: String,
+    wished: {
+        type: Boolean,
         default: false
     },
-    name: String
-}, {timestamps: true});
+    category: String
+});
 
-const ClosetModel = mongoose.model("cloth",schema);
-module.exports = ClosetModel;
+const ClothModel = mongoose.model("cloth", ClothSchema);
+module.exports = ClothModel;

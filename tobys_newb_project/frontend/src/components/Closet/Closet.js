@@ -48,8 +48,9 @@ class Closet extends Component {
         */
     }
     handleDelete = (id) => {
-        const {clothes} = this.state;
-        axios.post(`/api/closet/delete/${this.props.cloth_category}`, {id:id})
+        console.log(this.state.clothes);
+        //const {clothes} = this.state;
+        axios.post(`/api/closet/delete/${this.props.cloth_category}`, {_id:id})
         .then(() => axios.get(`/api/closet/${this.props.cloth_category}`))
         .then(response => {
             this.setState({clothes: [...response.data]})
@@ -62,7 +63,7 @@ class Closet extends Component {
     }
     handleToggle = (id) => {
         const {clothes} = this.state;
-        axios.post(`/api/closet/toggle/${this.props.cloth_category}`, {id:id})
+        axios.post(`/api/closet/toggle/${this.props.cloth_category}`, {_id:id})
         .then(() => axios.get(`/api/closet/${this.props.cloth_category}`))
         .then(response => {
             this.setState({clothes: [...response.data]})
@@ -80,7 +81,6 @@ class Closet extends Component {
     }
     render(){
         const { cloth_category } = this.props;
-
 
 
         return (

@@ -11,14 +11,14 @@ class ClothList extends Component {
     render() {
         const { clothes, onDelete, onToggle} = this.props;
         const clothList = clothes.map(
-            ({id, text, wished}) => (
+            ({_id, text, wished}) => (
                 <Cloth
-                    id={id}
+                    _id={_id}
                     text={text}
                     Wished={wished}
                     onDelete={onDelete}
                     onToggle={onToggle}
-                    key = {id} //리렌더링 할 때 효율적으로 작동하기 위함!
+                    key = {_id} //리렌더링 할 때 효율적으로 작동하기 위함!
                     />
             )
         );

@@ -45,16 +45,18 @@ export default function CategorySelect(props) {
         setDays(event.target.value);
     };
     const handleAdd =() => {
-        axios.post(`/api/calendar/`, {
-            top: cloth[0],
-            bottom: cloth[1],
-            shoes: cloth[2],
-            outer: cloth[3],
-            accessory: cloth[4],
-            day: days
-        })
-        .then(() => axios.get(`/api/calendar/`))
-        .then(response => {props.onUpdate(response.data)})
+        for(let i=0 ; i<days.length ; i++){
+            axios.post(`/api/calendar/`, {
+                top: cloth[0],
+                bottom: cloth[1],
+                shoes: cloth[2],
+                outer: cloth[3],
+                accessory: cloth[4],
+                day: days[i]
+            })
+            .then(() => axios.get(`/api/calendar/`))
+            .then(response => {props.onUpdate(response.data)})
+        }
     };
 
     return (
@@ -75,7 +77,7 @@ export default function CategorySelect(props) {
                         </MenuItem>
 
                             {props.children[keys[index]].map((cloth, i) => {
-                                return <MenuItem key={cloth.id} value={cloth.text}>{cloth.text}</MenuItem>;
+                                return <MenuItem key={cloth._id} value={cloth.text}>{cloth.text}</MenuItem>;
                             })}
                         
                         </Select>
