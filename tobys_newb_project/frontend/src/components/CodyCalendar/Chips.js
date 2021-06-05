@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Chip from '@material-ui/core/Chip';
-
+import './Chips.css';
 const useStyles = makeStyles((theme) => ({
     
     root: {
@@ -22,7 +22,7 @@ export default function ChipsArray(props) {
     const classes = useStyles();
     const {cody} = props;
     return (
-        <div>
+        <div className="Chips">
             <Chip
                 label={cody.top}
                 className={classes.chip}
