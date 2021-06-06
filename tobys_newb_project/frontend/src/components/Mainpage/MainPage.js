@@ -36,7 +36,7 @@ class MainPage extends Component {
             return (
                 <div>
                     <h1 className="head">
-                        Today's Cody
+                        Today's Outfit
                     </h1>
                     <body className="Main">
                         <MainTemplate day={fulldays[today.getDay()]} date={date}>
@@ -50,7 +50,7 @@ class MainPage extends Component {
             return (
                 <div>
                     <h1 className="head">
-                        Today's Cody
+                        Today's Outfit
                     </h1>
                     <body className="Main">
                         <MainTemplate day={fulldays[today.getDay()]} date={date}>

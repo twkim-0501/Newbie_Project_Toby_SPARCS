@@ -6,6 +6,15 @@
   align-content: flex-start;
   /*float: right;*/
 }
+.Bulb{
+  color: #228be6;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  align-content: flex-start;
+  cursor: pointer;
+}
 
 .App {
   text-align: center;

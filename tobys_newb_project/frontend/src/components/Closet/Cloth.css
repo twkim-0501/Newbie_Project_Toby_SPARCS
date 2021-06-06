@@ -31,3 +31,44 @@
     font-weight: 700;
     color: #ffd43b;
 }
+/*-------------highlight*/
+.Cloth_h{
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.1s;
+    user-select: none;
+    background-color: #339af0;
+}
+.Cloth_h:hover {
+    background: #ced4da;
+}
+.Cloth_h:hover .Delete{
+    opacity: 1;
+}
+.Cloth_h-name{
+    flex: 1;
+    word-break: keep-all;
+    font-weight: bolder;
+    color: white;
+}
+.Delete_h{
+    margin-right: 1rem;
+    color: white;
+    font-weight: 500;
+}
+.Cloth:hover .Delete_h{
+    opacity: 0;
+}
+/*
+.Cloth_h + .Cloth {
+    border-top: 0.7px solid #868e96;
+}
+.Cloth + .Cloth_h {
+    border-top: 0.7px solid #868e96;
+}
+.Cloth_h + .Cloth_h {
+    border-top: 0.7px solid #868e96;
+}
+*/

@@ -2,7 +2,7 @@
     display: flex;
 }
 .closetForm input {
-    min-width: 50px;
+    min-width: 40px;
     flex: 1;
     font-size: 1rem; 
     border: none;
@@ -16,5 +16,11 @@
     color: white;
     font-size: 0.75rem;
     font-weight: 450;
+    cursor: pointer; 
+}
+.highlight{
+    color: #228be6;
+    line-height: 0.7rem;
+    margin-left: 1rem;
     cursor: pointer; 
 }

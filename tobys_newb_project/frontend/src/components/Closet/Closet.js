@@ -6,15 +6,19 @@ import ClothList from './ClothList';
 class Closet extends Component {
     state = {
         input: '',
-        clothes:  []
+        clothes:  [],
+        is_highlight: 0
     }
     componentDidMount() {
         //옷 목록 조회 요청 전송
         axios.get(`/api/closet/${this.props.cloth_category}`)
         .then(response => {
-            //console.log(response);
             this.setState({clothes: [...response.data]})
         });
+    }
+    componentDidUpdate(prevProps){
+        if(prevProps.is_highlight !== this.props.is_highlight)
+            this.setState({is_highlight: this.props.is_highlight});
     }
     handleChange = (e) => {
         this.setState({
@@ -61,17 +65,26 @@ class Closet extends Component {
             this.setState({clothes: [...response.data]})
         });
     }
+    handleHighlight = () => {
+        let temp;
+        temp = this.state.is_highlight ? 0 : 1 ;
+        this.setState({is_highlight: temp});
+    }
     render(){
         const { cloth_category } = this.props;
-
-
         return (
             //<div>This is Closet page.</div>
             <ClosetTemplate 
-            cloth_category={cloth_category} 
-            form={<ClosetForm value={this.state.input} 
-            onChange={this.handleChange} onCreate={this.handleCreate}/>}>
-                <ClothList clothes={this.state.clothes} onDelete={this.handleDelete} onToggle={this.handleToggle}/>
+                cloth_category={cloth_category} 
+                form={
+                    <ClosetForm value={this.state.input} 
+                        onChange={this.handleChange} onCreate={this.handleCreate} onHighlight={this.handleHighlight}
+                    />
+            }>
+                <ClothList 
+                    clothes={this.state.clothes} onDelete={this.handleDelete} onToggle={this.handleToggle}
+                    is_highlight= {this.state.is_highlight}
+                />
             </ClosetTemplate>
         );
     }
