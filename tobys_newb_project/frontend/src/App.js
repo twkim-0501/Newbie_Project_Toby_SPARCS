@@ -1,8 +1,8 @@
 import './App.css';
 import React, {Component} from 'react';
-import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import NavBar from "./components/NavBar";
-import MainPage from "./components/MainPage";
+import MainPage from "./components/Mainpage/MainPage";
 import CodyCalander from "./components/CodyCalendar/CodyCalendar";
 import Closet from "./components/Closet/Closet.js";
 

@@ -23,7 +23,7 @@ class Closet extends Component {
     }
 
     handleCreate =() => {
-        const { input , clothes} = this.state;
+        const { input } = this.state;
         axios.post(`/api/closet/${this.props.cloth_category}`, {
             text: input,
             wished: false
@@ -48,36 +48,18 @@ class Closet extends Component {
         */
     }
     handleDelete = (id) => {
-        console.log(this.state.clothes);
-        //const {clothes} = this.state;
         axios.post(`/api/closet/delete/${this.props.cloth_category}`, {_id:id})
         .then(() => axios.get(`/api/closet/${this.props.cloth_category}`))
         .then(response => {
             this.setState({clothes: [...response.data]})
         });
-        /*
-        this.setState({
-            clothes: clothes.filter(cloth => (cloth.id!==id))
-        });
-        */
     }
     handleToggle = (id) => {
-        const {clothes} = this.state;
         axios.post(`/api/closet/toggle/${this.props.cloth_category}`, {_id:id})
         .then(() => axios.get(`/api/closet/${this.props.cloth_category}`))
         .then(response => {
             this.setState({clothes: [...response.data]})
         });
-        /*
-        const tog_cloth = clothes[clothes.findIndex(cloth => cloth.id === id)];//바꿀 옷
-        const temp = [...clothes];
-        temp[clothes.findIndex(cloth => cloth.id === id)] = { //wished값 변경
-            ...tog_cloth, wished: !(tog_cloth.wished)
-        };
-        this.setState({
-            clothes: temp
-        });
-        */
     }
     render(){
         const { cloth_category } = this.props;

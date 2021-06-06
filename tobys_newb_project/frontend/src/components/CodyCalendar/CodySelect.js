@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import './CodySelect.css';
 import { makeStyles } from "@material-ui/core/styles";
 import Input from '@material-ui/core/Input';

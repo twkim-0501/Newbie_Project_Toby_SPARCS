@@ -1,5 +1,4 @@
 import React from 'react';
-import Closet from './Closet';
 import './ClosetForm.css';
 const ClosetForm = ({value, onChange, onCreate}) => {
     return(
