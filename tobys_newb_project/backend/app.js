@@ -9,10 +9,13 @@ const mongoose = require("mongoose");
 const app = express();
 const port = 8080;
 
-mongoose.connect("mongodb://localhost:27017/cody_closet", {
+mongoose.connect("mongodb://whale.sparcs.org:39845/cody_closet", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
+
+
+
 
 const db = mongoose.connection;
 db.once("open", function() {
