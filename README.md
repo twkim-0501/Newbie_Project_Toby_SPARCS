@@ -1,4 +1,4 @@
-# Newbie_Project_Toby(Outfit Calendar App)
+# Newbie_Project_Toby(Outfit Manager App)
   This project is my first development project in my life.
 This app takes care of the clothes you own and reduces the stress of deciding what to wear.
 It consists of a closet tab where you can store your clothes, a calendar tab where you can store clothes to wear by day of the week, and a main tab that tells you what clothes to wear today.
